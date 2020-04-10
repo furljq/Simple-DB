@@ -69,8 +69,8 @@ public class BufferPool {
         // some code goes here
         int available = -1;
         for (int i = 0; i < pages.length; i++){
-            if (pages[i].getId().equals(pid)) return pages[i];
             if (pages[i] == null) available = i;
+            else if (pages[i].getId().equals(pid)) return pages[i];
         }
         if (available == -1) throw new DbException("Page Fault");
         pages[available] = Database.getCatalog().getDatabaseFile(pid.getTableId()).readPage(pid);
