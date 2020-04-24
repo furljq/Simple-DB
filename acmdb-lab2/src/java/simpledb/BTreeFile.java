@@ -192,11 +192,15 @@ public class BTreeFile implements DbFile {
 	 * @return the left-most leaf page possibly containing the key field f
 	 * 
 	 */
-	private BTreeLeafPage findLeafPage(TransactionId tid, HashMap<PageId, Page> dirtypages, BTreePageId pid, Permissions perm,
-			Field f) 
-					throws DbException, TransactionAbortedException {
+	private BTreeLeafPage findLeafPage(TransactionId tid, HashMap<PageId, Page> dirtypages, BTreePageId pid, Permissions perm, Field f) throws DbException, TransactionAbortedException {
 		// some code goes here
-        return null;
+		if (pid.pgcateg() == BTreePageId.LEAF) return (BTreeLeafPage) getPage(tid, dirtypages, pid, perm);
+		BTreeInternalPage internalPage = (BTreeInternalPage) getPage(tid, dirtypages, pid, Permissions.READ_ONLY);
+		for (BTreeInternalPageIterator iterator = (BTreeInternalPageIterator) internalPage.iterator(); ; ) {
+			BTreeEntry entry = iterator.next();
+			if (f == null || f.compare(Op.LESS_THAN, entry.getKey())) return findLeafPage(tid, dirtypages, entry.getLeftChild(), perm, f);
+			if (!iterator.hasNext()) return findLeafPage(tid, dirtypages, entry.getRightChild(), perm, f);
+		}
 	}
 	
 	/**
@@ -211,9 +215,7 @@ public class BTreeFile implements DbFile {
 	 * @return the left-most leaf page possibly containing the key field f
 	 * 
 	 */
-	BTreeLeafPage findLeafPage(TransactionId tid, BTreePageId pid, Permissions perm,
-			Field f) 
-					throws DbException, TransactionAbortedException {
+	BTreeLeafPage findLeafPage(TransactionId tid, BTreePageId pid, Permissions perm, Field f) throws DbException, TransactionAbortedException {
 		return findLeafPage(tid, new HashMap<PageId, Page>(), pid, perm, f);
 	}
 
