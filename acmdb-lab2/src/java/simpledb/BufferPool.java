@@ -73,7 +73,7 @@ public class BufferPool {
     public  Page getPage(TransactionId tid, PageId pid, Permissions perm) throws TransactionAbortedException, DbException {
         // some code goes here
         if (!pages.containsKey(pid)) {
-            if (pages.size() > numPages) evictPage();
+            if (pages.size() == numPages) evictPage();
             pages.put(pid, Database.getCatalog().getDatabaseFile(pid.getTableId()).readPage(pid));
         }
         return pages.get(pid);
@@ -138,10 +138,16 @@ public class BufferPool {
      * @param tableId the table to add the tuple to
      * @param t the tuple to add
      */
-    public void insertTuple(TransactionId tid, int tableId, Tuple t)
-        throws DbException, IOException, TransactionAbortedException {
+    public void insertTuple(TransactionId tid, int tableId, Tuple t) throws DbException, IOException, TransactionAbortedException {
         // some code goes here
         // not necessary for lab1
+        ArrayList<Page> dirtyPages = Database.getCatalog().getDatabaseFile(tableId).insertTuple(tid, t);
+        for (Page page: dirtyPages) {
+            page.markDirty(true, tid);
+            if (pages.containsKey(page.getId())) continue;
+            if (pages.size() == numPages) evictPage();
+            pages.put(page.getId(), page);
+        }
     }
 
     /**
@@ -157,10 +163,16 @@ public class BufferPool {
      * @param tid the transaction deleting the tuple.
      * @param t the tuple to delete
      */
-    public  void deleteTuple(TransactionId tid, Tuple t)
-        throws DbException, IOException, TransactionAbortedException {
+    public  void deleteTuple(TransactionId tid, Tuple t) throws DbException, IOException, TransactionAbortedException {
         // some code goes here
         // not necessary for lab1
+        ArrayList<Page> dirtyPages = Database.getCatalog().getDatabaseFile(t.getRecordId().getPageId().getTableId()).deleteTuple(tid, t);
+        for (Page page: dirtyPages) {
+            page.markDirty(true, tid);
+            if (pages.containsKey(page.getId())) continue;
+            if (pages.size() == numPages) evictPage();
+            pages.put(page.getId(), page);
+        }
     }
 
     /**
@@ -201,6 +213,7 @@ public class BufferPool {
         // some code goes here
         // not necessary for lab1
         Page page = pages.get(pid);
+        if (page == null) return;
         if (page.isDirty() == null) return;
         Database.getCatalog().getDatabaseFile(pid.getTableId()).writePage(page);
         page.markDirty(false, null);

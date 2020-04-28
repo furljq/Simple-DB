@@ -1,4 +1,3 @@
-I spend about 2 hours to deal with lab0's task.
-There used to be a subtask 2.1.3 made me confused, but I think it was removed now, since I pull again and find it disappeared in the doc.
-I have not do test on eclipse, I think I will not work no it.
-The result of test is a little different with what written in doc. For example, doc says that output should be "Tests run:2, Failures:0, Errors:2", but my ant told me "Tests run:5, Failures:4, Errors:1".
+I spend about 6 hours for this lab I think.
+I just use random eviction policy to do page eviction simply. I do not understand the requirement about insertion and deletion methods or bonus exercise. I just fill in the function blanks which README asks me to do.
+I ignore the requirement that "The new entry should have a key matching the key field of the first tuple in the right-hand page." in function "splitLeafPage". I can not think out a algorithm to satify it meanwhile to be able to find a left-most leaf page when use function "findLeafPage". In multy key field BTree, we can find left-most leaf page with entry of key as left-hand page's last tuple, or we can find right-most leaf page with entry of key as right-hand page's first tuple easily.
