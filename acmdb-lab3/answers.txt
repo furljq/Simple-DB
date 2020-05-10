@@ -1,3 +1,1 @@
 I spend about 6 hours for this lab I think.
-I just use random eviction policy to do page eviction simply. I do not understand the requirement about insertion and deletion methods or bonus exercise. I just fill in the function blanks which README asks me to do.
-I ignore the requirement that "The new entry should have a key matching the key field of the first tuple in the right-hand page." in function "splitLeafPage". I can not think out a algorithm to satify it meanwhile to be able to find a left-most leaf page when use function "findLeafPage". In multy key field BTree, we can find left-most leaf page with entry of key as left-hand page's last tuple, or we can find right-most leaf page with entry of key as right-hand page's first tuple easily.
