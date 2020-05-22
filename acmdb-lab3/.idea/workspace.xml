@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2dd3bda-6444-4e5c-9b5a-0da138618e8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/answers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/answers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/depcache/dependencies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/depcache/dependencies.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/META-INF/simpledb.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/Aggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/BufferPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/BufferPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/Delete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/HashEquiJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/HashEquiJoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/HeapFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/HeapFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/HeapPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/HeapPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/Insert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/IntegerAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/IntegerAggregator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/Join.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/JoinPredicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/JoinPredicate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/simpledb/StringAggregator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/simpledb/StringAggregator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/simpledb/BufferPoolWriteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/simpledb/BufferPoolWriteTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="f2dd3bda-6444-4e5c-9b5a-0da138618e8c" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/src/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +14,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -127,7 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,14 +156,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../acmdb-lab4" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -324,6 +305,7 @@
       <workItem from="1588860507405" duration="2305000" />
       <workItem from="1588933666646" duration="6957000" />
       <workItem from="1589080328266" duration="15890000" />
+      <workItem from="1589115054730" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="lab2">
       <created>1587702979182</created>
@@ -368,12 +350,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135470000" />
+    <option name="totallyTimeSpent" value="135482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871466" visible="true" weight="0.2600536" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49871466" visible="true" weight="0.26340482" />
       <window_info id="Structure" order="1" sideWeight="0.5012854" side_tool="true" weight="0.23123324" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
