@@ -1,1 +1,2 @@
-I spend about 6 hours for this lab I think.
+I use circle detection on dependency graph for deadlock detection, what should be noticed is that we should not detect circle for every acquire, just for those who change the graph is enough or it will be extremely slow.
+I spend about 25 hours for this lab I think.
