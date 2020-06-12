@@ -12,7 +12,6 @@ public class SeqScan implements DbIterator {
     private static final long serialVersionUID = 1L;
 
     private TransactionId transactionId;
-    private int tableId;
     private String tableAlias;
     private TupleDesc tupleDesc;
     private DbFileIterator dbFileIterator;
@@ -71,10 +70,9 @@ public class SeqScan implements DbIterator {
      */
     public void reset(int tableid, String tableAlias) {
         // some code goes here
-        tableId = tableid;
         this.tableAlias = tableAlias;
-        tupleDesc = Database.getCatalog().getDatabaseFile(tableId).getTupleDesc();
-        dbFileIterator = Database.getCatalog().getDatabaseFile(tableId).iterator(transactionId);
+        tupleDesc = Database.getCatalog().getDatabaseFile(tableid).getTupleDesc();
+        dbFileIterator = Database.getCatalog().getDatabaseFile(tableid).iterator(transactionId);
     }
 
     public SeqScan(TransactionId tid, int tableid) {

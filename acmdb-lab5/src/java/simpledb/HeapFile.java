@@ -106,15 +106,18 @@ public class HeapFile implements DbFile {
         // some code goes here
         // not necessary for lab1
         for (int i = 0; i < numPages(); i++) {
-            HeapPage page = (HeapPage) Database.getBufferPool().getPage(tid, new HeapPageId(getId(), i), Permissions.READ_WRITE);
+            HeapPage page = (HeapPage) Database.getBufferPool().getPage(tid, new HeapPageId(getId(), i), Permissions.READ_ONLY);
             if (page.getNumEmptySlots() > 0) {
+                page = (HeapPage) Database.getBufferPool().getPage(tid, new HeapPageId(getId(), i), Permissions.READ_WRITE);
                 page.insertTuple(t);
                 return new ArrayList<>(Collections.singleton(page));
-            }
+            } else Database.getBufferPool().releasePage(tid, new HeapPageId(getId(), i));
         }
-        HeapPage page = new HeapPage(new HeapPageId(getId(), numPages()), HeapPage.createEmptyPageData());
-        page.insertTuple(t);
+        HeapPageId newPageId = new HeapPageId(getId(), numPages());
+        HeapPage page = new HeapPage(newPageId, HeapPage.createEmptyPageData());
         writePage(page);
+        page = (HeapPage) Database.getBufferPool().getPage(tid, newPageId, Permissions.READ_WRITE);
+        page.insertTuple(t);
         return new ArrayList<>(Collections.singleton(page));
     }
 
@@ -138,7 +141,7 @@ public class HeapFile implements DbFile {
             @Override
             public void open() throws DbException, TransactionAbortedException {
                 pid = 0;
-                tupleIterator = ((HeapPage) (Database.getBufferPool().getPage(tid, new HeapPageId(getId(), pid), Permissions.READ_WRITE))).iterator();
+                tupleIterator = ((HeapPage) (Database.getBufferPool().getPage(tid, new HeapPageId(getId(), pid), Permissions.READ_ONLY))).iterator();
             }
 
             @Override

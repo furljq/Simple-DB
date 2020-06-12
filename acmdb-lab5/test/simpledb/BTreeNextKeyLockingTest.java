@@ -83,6 +83,7 @@ public class BTreeNextKeyLockingTest extends SimpleDbTestBase {
 		Database.getBufferPool().transactionComplete(tid);
 		tid = new TransactionId();
 
+
 		// search for tuples less than or equal to the key
 		ipred = new IndexPredicate(Op.LESS_THAN_OR_EQ, key);
 		fit = bigFile.indexIterator(tid, ipred);
